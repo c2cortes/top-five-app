@@ -8,7 +8,7 @@ class UserProfile extends Component {
 		this.state = {
             name: '',
             location: '',
-            picture: ''
+            avatar_url: ''
         }
         
         this.loadUserInfo = this.loadUserInfo.bind(this);
@@ -25,7 +25,8 @@ class UserProfile extends Component {
         .then(res => res.json())
         .then(
             (data) => {
-                this.setState({name: data.name, location: data.location});
+				console.log(data);
+                this.setState({name: data.name, location: data.location, avatar_url: data.avatar_url });
             },
             (error) => {
             this.setState({
@@ -58,9 +59,17 @@ class UserProfile extends Component {
 		return(
 			<div className="main-container">
 				{ this.renderHeader() }
-                <div>
-                    { this.state.name }
-                </div>
+				<div className="row">
+					<div className="col-lg-2 col-md-2 col-sm-2">
+						<img className="user-profile-picture" src={ this.state.avatar_url }></img>
+					</div>
+					<div className="col-lg-10 col-md-10 col-sm-10">
+						<ul>
+							<li>{ this.state.name }</li>	
+							<li>{ this.state.location }</li>	
+						</ul>
+					</div>
+				</div>
 			</div>
 		)
 	}
