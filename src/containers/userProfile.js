@@ -43,10 +43,13 @@ class UserProfile extends Component {
 
 	renderHeader(){
 		return(
-		<div className="card border-dark mb-3">
+		<div className="card border-dark mb-3">	
 			<div className="card-header">
 				<div className="row">
-					<div className="col-lg-10 col-md-10 col-sm-10">
+					<div className="col-lg-2 col-md-2 col-sm-2">
+						<button className="btn btn-primary" onClick={ () => window.location.href = '' }>Back</button>
+					</div>
+					<div className="col-lg-8 col-md-8 col-sm-8">
 						<h4 className="movement-title-list">Person</h4>
 					</div>
 				</div>
